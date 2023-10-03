@@ -1,0 +1,407 @@
+  what will be covered in java oop concepts:
+    _ history of oop
+    _ introduction to java oop
+    _ classes and objects
+    _ packages
+    _ access modifiers of a class and its members
+    _ static vs non static
+    _ constructor and its types vs oop.destructor (garbag collector)
+    _ inner classes static vs non static
+    _ oop.inheritance
+    _ passing by value vs passing by reference
+    _ casting primitive data and references
+    _ polymorphism ( many forms )
+       _ method overloading
+       _ method overriding
+    _ abstraction
+    _ Encapsulation
+    _ singleton class
+    _ heap vs stack memory
+----------------------------------------------------------------------------------------------------------------------------------
+    history of oop:
+    oop was developed by a norwegian computer scientist named ole-johan dahl and his student kristen nygaard in the 1960s at the norwegian computing center in oslo.
+    it was developed to overcome the drawbacks of procedural programming.
+    it was first developed in simula programming language.
+    it was later implemented in smalltalk programming language.
+    it was later implemented in c++ programming language.
+    it was later implemented in java programming language.
+    it was later implemented in c# programming language.
+    it was later implemented in python programming language.
+----------------------------------------------------------------------------------------------------------------------------------
+    what is java oop?
+    java oop is a programming paradigm that uses objects and classes in programming.
+    it aims to implement real world entities like oop.inheritance, hiding, polymorphism etc in programming.
+    and java is a object oriented programming language that follows oop concepts to implement real world entities.
+    types of programming paradigms:
+    _ procedural programming paradigm
+    _ object oriented programming paradigm
+    _ functional programming paradigm
+---------------------------------------------------------------------------------------------------------------------------------
+    What are the advantages of OOPs?
+    There are several benefits of implementing OOPs Concepts in Java. A few of the major advantages are as follows:
+    Code maintenance, Data Reusability(oop.inheritance), Security, Easy troubleshooting (structured code), reduce complexity(polymorthisme), Flexibility(overiding methods) and Design Benefits.
+    Java OOPs Concepts are one of the core development approaches that is widely accepted.
+---------------------------------------------------------------------------------------------------------------------------------------
+    what is a class?
+        a class is a blueprint or a template for creating objects. it is a logical entity. does not take memory it's just compiled.
+        it encapsulates data and methods that operate on that data.
+        for example, a car is a class that encapsulates data like brand, color, model, etc and methods like start, stop, accelerate, etc.
+    what is an object?
+        an object is an instance of a class. it is a physical entity. it takes memory.
+        for example, a car is an object that has physical characteristics like brand, color, model, etc and behaviors like start, stop, accelerate, etc.
+----------------------------------------------------------------------------------------------------------------------------------
+        what is a package?
+            a package is a collection of related classes and interfaces.
+                        it is used to organize classes and interfaces into a single unit.
+                        it is also used to provide access protection.
+                        it prevents naming conflicts.
+                        it makes searching/locating classes, interfaces, and exceptions easier.
+                        it is easy to import a class or interface from a package.
+                        it is easy to deploy a package.
+                        it is easy to secure a package.
+                        it is easy to document a package.
+
+
+
+            one.two.three.SomeClass myObject = new one.two.three.SomeClass();
+            import one.two.three.SomeClass;
+            import one.two.three.*;
+
+             --- https://cs.smu.ca/~porter/csc/465/notes/javapl_packages.html---
+
+
+
+            types of packages:
+            _ built-in packages are the packages that are built into the java language.
+            _ user-defined packages are the packages that are created by the user.
+----------------------------------------------------------------------------------------------------------------------------------
+        what is an access modifier?
+        an access modifier is a keyword that is used to specify the accessibility of a class, method, constructor, or field.
+        _ for classes there is :
+            _ public means accessible to all classes in all packages.
+            _ default means accessible to all classes in the same package. example(open source package)
+        _ for methods, constructors, and fields there is :
+            _ public means accessible to all classes in all packages.
+            _ protected means accessible to all classes in the same package and all subclasses in all packages.
+            _ default means accessible to all classes in the same package.
+            _ private means accessible to only the same class.
+----------------------------------------------------------------------------------------------------------------------------------
+        what is static?
+        static is a keyword that means the following:
+                _ static variable is a variable that belongs to the class and not to object(instance).
+                _ static method is a method that belongs to the class and not to object(instance).
+                _ static methods can only access static variables and static methods.
+                _ static methods can be accessed directly by the class name.
+                _ !!!! static variables and static methods are loaded into memory when the class is loaded. !!!!!!
+                _ static methods can be overloaded but not overridden.
+
+                        Important Points for Method Overriding and Static Methods in Java
+                        For static methods, the method is called based on the type of reference, not the object being referred to, implying that the method call is determined at compile time.
+                        For non-static methods, the method is called based on the type of object being referenced, rather than the type of reference, implying that method calls are made at runtime.
+
+        why the main method is static?
+                _ the main method is static because it is called by the jvm before any object of the class is created.
+
+        what is a static block?
+             The set of codes inside a static block can run only once when the class is loaded into the memory,
+              by loading of class into memory we mean that, when the Java ClassLoader which is a part of Java Runtime Environment dynamically loads the Java classes into the Java Virtual Machine (JVM).
+              We can say static block can be used for static initialization of a class,
+              this is because it is an option for initializing or setting up the class during run-time and also the code inside the static block is executed only once: the first time when the class is loaded into memory.
+              So a static block is also known as static initialization block.
+
+             A static block is executed before the main method during the classloading.
+
+             Let us see an example of how to declare a static block in Java.
+                _ a static block is a block of code that is used to initialize static variables.
+                _ it is executed before the main method at the time of classloading.
+                _ it is executed only once.
+                _ it is executed before the static method.
+                _ it is executed before the static variable.
+                _ it is executed before the object(instance) is created.
+                _ it is executed before the constructor.
+             example to use static block :
+                class A{
+                    static{
+                        System.out.println("static block is invoked");
+                        System.exit(0);
+                    }
+                }
+                class TestStaticBlock{
+                    public static void main(String args[]){
+                        A a=new A();
+                        System.out.println("Hello main");
+                    }
+                }
+
+----------------------------------------------------------------------------------------------------------------------------------
+        what is a constructor?
+        a constructor is a special method that is used to initialize an object.
+        it is called when an object of a class is created.
+        it is used to set initial values for object attributes.
+        it is not necessary to write a constructor for a class.
+        its name must be the same as the class name.
+        it does not have a return type.
+        types of constructors:
+        _ default constructor is a constructor that does not have any parameter.
+        _ parameterized constructor is a constructor that has parameters.
+        _ Chalenge : how to prevent creating object from a class.
+----------------------------------------------------------------------------------------------------------------------------------
+        what is a oop.destructor?
+           a oop.destructor is a special method that is used to destroy an object named garbage collector in java.
+
+           How does oop.destructor work?
+           When the object is created it occupies the space in the heap. These objects are used by the threads.
+           If the objects are no longer is used by the thread it becomes eligible for the garbage collection.
+           The memory occupied by that object is now available for new objects that are being created.
+           It is noted that when the garbage collector destroys the object,
+           the JRE calls the finalize() method to close the connections such as database and network connection.
+               finalize method is called by garbage collector when it determines no more references to the object exists.
+               you can override this method to perform cleanup processing.
+
+               the garbage collector (GC) determines whether an object is no longer reachable and can be cleared from memory
+               by using a technique called "reachability analysis." It doesn't specifically track which thread owns or uses an object;
+               instead, it looks at the references to objects from the root of the object graph and identifies objects that are no longer reachable from these roots.
+               When an object is no longer reachable, it is considered eligible for garbage collection.
+
+
+               garbage collector url doc : https://stackify.com/what-is-java-garbage-collection/#:~:text=A%20Definition%20of%20Java%20Garbage%20Collection&text=When%20Java%20programs%20run%20on,them%20to%20free%20up%20memory.
+
+----------------------------------------------------------------------------------------------------------------------------------
+     what is an inner class?
+         _ an inner class is a class that is defined inside another class.
+         _ it is used to logically group classes and interfaces in one place so that it can be more readable and maintainable.
+         _ it can access all members of the outer class including private members.
+         _ it can be declared as private, protected, public, or default.
+         _ it can extend a class and implement interfaces.
+         _ it can be abstract or final.
+         _ it can be static or non static.
+         _ a parent class can be accessed by its inner class.
+         _ an inner class can be accessed by its parent class.
+         _ an inner class can't have static members if it is not a static inner class.
+         _ a static inner class can access only static members of its parent class.
+         _ a non static inner class can access both static and non static members of its parent class.
+
+-------------------------------------------------------------------------------------------------------------------------------------
+        what is oop.inheritance?
+            oop.inheritance is a mechanism in which one object acquires all the properties and behaviors of its parent object
+            a child class inherits all the members (fields, methods, and nested classes) from its parent class.
+            it is used for code reusability.
+            it is used in the other concepts of oop.
+            it is of three types:
+                _ single oop.inheritance (AB)
+                _ multilevel oop.inheritance (ABC)
+                _ hierarchical oop.inheritance (three)
+                _ hybrid oop.inheritance not supported (multiple oop.inheritance)
+            example :
+                class Animal{
+                    String color = "white";
+                    void eat(){
+                        System.out.println("eating...");
+                    }
+                }
+                class Dog extends Animal{
+                    String color = "black";
+                    void bark(){
+                        System.out.println("barking...");
+                    }
+                    void printColor(){
+                        System.out.println(color);
+                        System.out.println(super.color);
+                    }
+                }
+                class Test{
+                    public static void main(String args[]){
+                        Dog d=new Dog();
+                        d.bark();
+                        d.eat();
+                        d.printColor();
+                    }
+                }
+----------------------------------------------------------------------------------------------------------------------------------
+        For variables are passed by value in Java, the value of the variable is passed to the method as a copy,
+         so even if the method modifies the variable passed to it, it has no effect on the original value of the variable.
+
+        For objects are passed by reference in Java, reference of object are passed by value but the reference value in a pointer to the object
+        so if we pass a reference to another variable, the changes effect the same object.
+----------------------------------------------------------------------------------------------------------------------------------
+        what is type casting ?
+           Type casting is a way of converting data from one data type to another data type.
+           This process of data conversion is also known as type conversion or type coercion.
+           In Java, we can cast both reference and primitive data types. By using casting,
+           data can not be changed but only the data type is changed.
+
+           _ Upcasting in Java
+               Upcasting, in simpler words, is the typecasting of a child object to a parent object.
+               Parent obj = new Child();     (sport)
+           _ Downcasting in Java :
+             Downcasting refers to typecasting a parent object to a child object.
+             However, this cannot be an implicit typecasting.
+             But While downcasting, it is important to verify beforehand that the object created is of the type Child irrespective of the reference variable.
+             This tells the compiler the runtime type of the object.
+
+             Parent obj  = new Child();
+             Child obj2 = (Child) obj;
+
+----------------------------------------------------------------------------------------------------------------------------------
+        what is polymorphism?
+            polymorphism is a mechanism in which one object can take many forms.
+            it is used to perform a single action in different ways.
+            it is of two types:
+                _ compile time polymorphism (method overloading)
+                _ runtime polymorphism (method overriding)
+            if a luanguage not sopporting polymorphism its called object based language.
+            example :
+                class Animal{
+                    void eat(){
+                        System.out.println("eating...");
+                    }
+                }
+                class Dog extends Animal{
+                 _ overloading
+                    void eat(String food){
+                        System.out.println("eating bread..."+food);
+                    }
+                }
+                _ overriding
+                class Cat extends Animal{
+                    void eat(){
+                        System.out.println("eating rat...");
+                    }
+                }
+                class TestPolymorphism2{
+                    public static void main(String args[]){
+                        Animal a;
+                        a=new Dog();
+                        a.eat("potatos");
+                        a=new Cat();
+                        a.eat();
+                    }
+                }
+                real example : every one code() but the needs(params) and the way(body) of code are different from one to one.
+----------------------------------------------------------------------------------------------------------------------------------
+          what is encapsulation?
+          encapsulation is a mechanism in which data and methods that operate on that data are wrapped together into a single unit.
+              it is used to hide data and methods from outside the class.
+              it is used to achieve data hiding.
+              it is used to make the code more flexible and maintainable.
+              it is used in the other concepts of oop.
+              example :
+                  class Student{
+                      private String name;
+                      private int age;
+                      public String getName(){
+                          return name;
+                      }
+                      public void setName(String name){
+                          this.name=name;
+                      }
+                      public int getAge(){
+                          return age;
+                      }
+                      public void setAge(int age){
+                          this.age=age;
+                      }
+                  }
+                  class Test{
+                      public static void main(String args[]){
+                          Student s=new Student();
+                          s.setName("vijay");
+                          s.setAge(25);
+                          System.out.println(s.getName()+" "+s.getAge());
+                      }
+                  }
+----------------------------------------------------------------------------------------------------------------------------------
+          what is abstraction?
+          Abstraction is one of the OOP Concepts in Java which is an act of representing essential features without including background details.
+           It is a technique of creating a new data type that is suited for a specific application.
+           Lets understand this one of the OOPs Concepts with example, while driving a car,
+           you do not have to be concerned with its internal working. Here you just need to concern about parts like steering wheel, Gears, accelerator, etc.
+              example :
+                  abstract class Shape{
+                      abstract void draw();
+                  }
+                  class Triangle extends Shape{
+                      void draw(){
+                          System.out.println("drawing Triangle...");
+                      }
+                  }
+                  class Rectangle extends Shape{
+                      void draw(){
+                          Shape triangle = new Triangle();
+                          tiangle.draw();
+                          tiangle.draw();
+                      }
+                  }
+                  class TestAbstraction1{
+                      public static void main(String args[]){
+                          Shape s=new Circle1();
+                          s.draw();
+                      }
+                  }
+-------------------------------------------------------------------------------------------------------------------------------------
+     what is a singleton class?
+         a singleton class is a class that can have only one object(instance) at a time.
+         example :
+          class Singleton{
+             private static Singleton instance = new Singleton();
+             private Singleton(){}
+             public static Singleton getInstance(){
+                 return instance;
+             }
+          use case :
+             _ logging
+             _ caching
+             _ configuration settings
+             _ database connections
+             _ etc.
+----------------------------------------------------------------------------------------------------------------------------------
+        what is heap?
+            heap is a memory area that is used by java runtime to allocate memory to objects and jvm classes.
+            it is also called runtime data area.
+            it is created when jvm starts up.
+            it stores objects and jvm classes.
+            it is shared among all threads.
+            it is garbage collected.
+            it is divided into three parts:
+                _ young generation is where all new objects are allocated and aged.
+                _ old generation is where all long surviving objects are allocated.
+                _ permanent generation is where jvm classes are allocated.
+----------------------------------------------------------------------------------------------------------------------------------
+        what is stack?
+            stack is a memory area that is used by java runtime to allocate memory to methods and local variables.
+            it is also called runtime data area.
+            it is created when a thread is created.
+            it stores methods and local variables.
+            it is not shared among threads.
+            it is not garbage collected.
+            it is divided into three parts:
+                _ frame is where methods and local variables are stored.
+                _ stack pointer is where the next instruction to be executed is stored.
+                _ native method stack is where native methods are stored. (methods that are written in other languages like c, c++, etc)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
